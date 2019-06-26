@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: [
-    '../../assets/css/util.css',
+    '../../../assets/css/util.css',
     './login.component.scss'
   ]
 })

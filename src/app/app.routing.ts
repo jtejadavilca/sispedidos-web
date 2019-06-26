@@ -8,8 +8,9 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: '',
+        // loadChildren: './ingreso-egreso/ingreso-egreso.module#IngresoEgresoModule',
         loadChildren: './sispedidos-web/sispedidos-web.module#SispedidosWebModule',
-        // canLoad: [ AuthGuard ]
+        canLoad: [ AuthGuard ]
     },
     { path: '**', redirectTo: '' }
 ];
