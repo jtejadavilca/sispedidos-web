@@ -1,0 +1,18 @@
+<div class="card card-chart">
+    <div [class]='"card-header " + popGraphCard.headerClass'>
+        <div class="ct-chart" [id]='popGraphCard.id'></div>
+        <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+    </div>
+    <div class="card-body">
+        <h4 class="card-title"> {{popGraphCard.title}} </h4>
+        <p class="card-category" innerHTML={{popGraphCard.category}}>
+            <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales. -->
+            {{popGraphCard.category}}
+        </p>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <i class="material-icons"> {{popGraphCard.iconFooter}} </i> {{popGraphCard.textFooter}}
+        </div>
+    </div>
+</div>

@@ -1,3 +1,51 @@
-<p>
-  estadisticas works!
-</p>
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <app-card-stats [propsCard]="propsPedidosPendientes"></app-card-stats>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <app-card-stats [propsCard]="propsPedidosAtendidos"></app-card-stats>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+          <app-card-stats [propsCard]="propsPedidosCanceladosDevueltos"></app-card-stats>
+    </div>
+    <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                    <i class="fa fa-twitter"></i>
+                </div>
+                <p class="card-category">Followers</p>
+                <h3 class="card-title">+245</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">update</i> Just Updated
+                </div>
+            </div>
+        </div> 
+    </div>-->
+</div>
+<div class="row">
+    <div class="col-md-4">
+          <app-card-graph-stats [popGraphCard]="propsGraphPedidosSemana"></app-card-graph-stats>
+      </div>
+      <div class="col-md-4">
+          <app-card-graph-stats [popGraphCard]="propsGraphPedidosPorVendedor"></app-card-graph-stats>
+    </div>
+    <div class="col-md-4">
+        <!-- <div class="card card-chart">
+            <div class="card-header card-header-danger">
+                <div class="ct-chart" id="completedTasksChart"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Completed Tasks</h4>
+                <p class="card-category">Last Campaign Performance</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

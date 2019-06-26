@@ -8,6 +8,7 @@ import { SispedidosWebComponent } from './sispedidos-web.component';
 import { sispedidosWebdRoutes } from './sispedidos-web.routes';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
 
 import {
   MatButtonModule,
@@ -17,6 +18,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { VendedoresComponent } from './vendedores/vendedores.component';
 
 const routes: Routes = [
   {
@@ -33,7 +35,8 @@ const routes: Routes = [
     EstadisticasComponent,
     PedidosComponent,
     UsuariosComponent,
-    SispedidosWebComponent
+    SispedidosWebComponent,
+    VendedoresComponent
   ],
   imports: [
     CommonModule,
@@ -44,12 +47,14 @@ const routes: Routes = [
     MatFormFieldModule,
     MatTooltipModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    ComponentsModule
   ],
   exports: [
     DashboardComponent,
     EstadisticasComponent,
     PedidosComponent,
+    VendedoresComponent,
     UsuariosComponent
   ]
 })
