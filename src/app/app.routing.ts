@@ -7,12 +7,12 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
-        path: 'dashboard',
+        path: '',
         // loadChildren: './ingreso-egreso/ingreso-egreso.module#IngresoEgresoModule',
         loadChildren: './sispedidos-web/sispedidos-web.module#SispedidosWebModule',
         canLoad: [ AuthGuard ]
     },
-    { path: '**', redirectTo: 'dashboard' }
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

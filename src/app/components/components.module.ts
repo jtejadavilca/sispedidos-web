@@ -6,13 +6,15 @@ import { CommonModule } from '@angular/common';
 import { TareasComponent } from './tareas/tareas.component';
 import { MatTooltipModule } from '@angular/material';
 import { ListaVendedoresComponent } from './lista-vendedores/lista-vendedores.component';
+import { FormVendedorComponent } from './lista-vendedores/form-vendedor/form-vendedor.component';
 
 @NgModule({
     declarations: [
       CardStatsComponent,
       CardGraphStatsComponent,
       TareasComponent,
-      ListaVendedoresComponent
+      ListaVendedoresComponent,
+      FormVendedorComponent
     ],
     imports: [
         CommonModule,

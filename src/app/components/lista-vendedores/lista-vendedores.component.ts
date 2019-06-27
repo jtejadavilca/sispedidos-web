@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lista-vendedores',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-vendedores.component.scss']
 })
 export class ListaVendedoresComponent implements OnInit {
+
+  @Input() onlyShow = true; 
 
   constructor() { }
 

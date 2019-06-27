@@ -6,9 +6,10 @@ import { Routes } from '@angular/router';
 import { VendedoresComponent } from './vendedores/vendedores.component';
 
 export const sispedidosWebdRoutes: Routes = [
-    { path: '', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
     { path: 'vendedores', component: VendedoresComponent },
     { path: 'estadisticas', component: EstadisticasComponent },
     { path: 'pedidos', component: PedidosComponent },
-    { path: 'usuarios', component: UsuariosComponent }
+    { path: 'usuarios', component: UsuariosComponent },
+    { path: '**', redirectTo: 'dashboard' }
 ];
