@@ -3,11 +3,11 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { Routes } from '@angular/router';
-import { VendedoresComponent } from './vendedores/vendedores.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 
 export const sispedidosWebdRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'vendedores', component: VendedoresComponent },
+    { path: 'empleados', component: EmpleadosComponent },
     { path: 'estadisticas', component: EstadisticasComponent },
     { path: 'pedidos', component: PedidosComponent },
     { path: 'usuarios', component: UsuariosComponent },

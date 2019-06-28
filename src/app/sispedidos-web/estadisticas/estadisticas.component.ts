@@ -53,11 +53,11 @@ export class EstadisticasComponent implements OnInit, AfterViewInit {
     textFooter: 'updated 4 minutes ago'
   };
 
-  propsGraphPedidosPorVendedor: CardGraphStats = {
+  propsGraphPedidosPorEmpledo: CardGraphStats = {
     headerClass: 'card-header-warning',
     id: 'websiteViewsChart',
-    title: 'Ventas por Vendedor',
-    category: 'Ventas del mes por vendedor.',
+    title: 'Ventas por Empledo',
+    category: 'Ventas del mes por empleado.',
     iconFooter: 'face',
     textFooter: 'Rango: 01/06/2019 al 26/06/2019'
   };

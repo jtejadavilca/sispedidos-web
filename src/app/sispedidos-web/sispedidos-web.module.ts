@@ -18,7 +18,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
-import { VendedoresComponent } from './vendedores/vendedores.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 
 const routes: Routes = [
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     PedidosComponent,
     UsuariosComponent,
     SispedidosWebComponent,
-    VendedoresComponent
+    EmpleadosComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +54,7 @@ const routes: Routes = [
     DashboardComponent,
     EstadisticasComponent,
     PedidosComponent,
-    VendedoresComponent,
+    EmpleadosComponent,
     UsuariosComponent
   ]
 })

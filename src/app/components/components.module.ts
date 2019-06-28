@@ -4,8 +4,8 @@ import { CardStatsComponent } from './card-stats/card-stats.component';
 import { CardGraphStatsComponent } from './card-graph-stats/card-graph-stats.component';
 import { CommonModule } from '@angular/common';
 import { TareasComponent } from './tareas/tareas.component';
-import { ListaVendedoresComponent } from './lista-vendedores/lista-vendedores.component';
-import { FormVendedorComponent } from './lista-vendedores/form-vendedor/form-vendedor.component';
+import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
+import { FormEmpleadoComponent } from './lista-empleados/form-empleado/form-empleado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
@@ -21,8 +21,8 @@ import {
       CardStatsComponent,
       CardGraphStatsComponent,
       TareasComponent,
-      ListaVendedoresComponent,
-      FormVendedorComponent
+      ListaEmpleadosComponent,
+      FormEmpleadoComponent
     ],
     imports: [
         CommonModule,
@@ -39,7 +39,7 @@ import {
       CardStatsComponent,
       CardGraphStatsComponent,
       TareasComponent,
-      ListaVendedoresComponent
+      ListaEmpleadosComponent
     ]
   })
   export class ComponentsModule { }
