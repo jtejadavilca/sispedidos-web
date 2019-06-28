@@ -4,9 +4,17 @@ import { CardStatsComponent } from './card-stats/card-stats.component';
 import { CardGraphStatsComponent } from './card-graph-stats/card-graph-stats.component';
 import { CommonModule } from '@angular/common';
 import { TareasComponent } from './tareas/tareas.component';
-import { MatTooltipModule } from '@angular/material';
 import { ListaVendedoresComponent } from './lista-vendedores/lista-vendedores.component';
 import { FormVendedorComponent } from './lista-vendedores/form-vendedor/form-vendedor.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatTooltipModule,
+  MatSelectModule
+} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -18,7 +26,14 @@ import { FormVendedorComponent } from './lista-vendedores/form-vendedor/form-ven
     ],
     imports: [
         CommonModule,
-        MatTooltipModule
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTooltipModule,
     ],
     exports: [
       CardStatsComponent,
