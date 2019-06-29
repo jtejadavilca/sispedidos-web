@@ -19,6 +19,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { EmpleadosComponent } from './empleados/empleados.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
     PedidosComponent,
     UsuariosComponent,
     SispedidosWebComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    ClientesComponent
   ],
   imports: [
     CommonModule,
@@ -54,8 +56,9 @@ const routes: Routes = [
     DashboardComponent,
     EstadisticasComponent,
     PedidosComponent,
+    UsuariosComponent,
     EmpleadosComponent,
-    UsuariosComponent
+    ClientesComponent
   ]
 })
 export class SispedidosWebModule { }

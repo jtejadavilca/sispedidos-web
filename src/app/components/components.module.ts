@@ -7,6 +7,8 @@ import { TareasComponent } from './tareas/tareas.component';
 import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
 import { FormEmpleadoComponent } from './lista-empleados/form-empleado/form-empleado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { FormClientesComponent } from './lista-clientes/form-clientes/form-clientes.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -22,7 +24,9 @@ import {
       CardGraphStatsComponent,
       TareasComponent,
       ListaEmpleadosComponent,
-      FormEmpleadoComponent
+      FormEmpleadoComponent,
+      ListaClientesComponent,
+      FormClientesComponent
     ],
     imports: [
         CommonModule,
@@ -39,7 +43,9 @@ import {
       CardStatsComponent,
       CardGraphStatsComponent,
       TareasComponent,
-      ListaEmpleadosComponent
+      ListaEmpleadosComponent,
+      ListaClientesComponent,
+      FormClientesComponent
     ]
   })
   export class ComponentsModule { }
