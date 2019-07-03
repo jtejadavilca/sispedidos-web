@@ -23,6 +23,7 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+
   menuItems: any[];
 
   constructor() { }
