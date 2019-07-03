@@ -38,4 +38,4 @@ export class SidebarComponent implements OnInit {
       return true;
   }
 }
-// ultima prueba ssh... cms
+// ahora pide phrase ptmr!! jtejadavilca
