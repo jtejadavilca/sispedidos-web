@@ -38,4 +38,3 @@ export class SidebarComponent implements OnInit {
       return true;
   }
 }
-// ahora pide phrase ptmr!! jtejadavilca
