@@ -20,6 +20,7 @@ import {
 } from '@angular/material';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {

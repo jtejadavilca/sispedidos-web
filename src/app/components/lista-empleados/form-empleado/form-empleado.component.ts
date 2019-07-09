@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CatalogoService } from '../../../sispedidos-web/services/catalogo.service';
+import { CatalogoEntity } from '../../../interfaces/response.interface';
 
 @Component({
   selector: 'app-form-empleado',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEmpleadoComponent implements OnInit {
 
-  constructor() { }
+  cargoSelected = '001002';
+  cargos: CatalogoEntity[] = [];
+
+  constructor( private catalogoService: CatalogoService ) { }
 
   ngOnInit() {
+    this.catalogoService.cargarCatalogoCargosEmpleados()
+    .subscribe( (response: CatalogoEntity[]) => {
+      console.log('response', response);
+      this.cargos = response;
+    });
   }
 
 }
