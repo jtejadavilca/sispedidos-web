@@ -12,8 +12,8 @@ export class CatalogoService {
 
   constructor(private http: HttpClient) { }
 
-  cargarCatalogoCargosEmpleados() {
-    return this.http.get(`${environment.url_base}/catalogos/obtenercatalogo/001`)
+  obtenerCatalogo(codCatalogo: string) {
+    return this.http.get(`${environment.url_base}/catalogos/obtenercatalogo/${codCatalogo}`)
                     .pipe(
                       map( (respCat: ResponseBeanCatalogo) => {
                         if ( respCat.estado && respCat.dataLst) {
@@ -24,4 +24,18 @@ export class CatalogoService {
                       })
                     );
   }
+
+  cargarCatalogoCargosEmpleados() {
+    return this.obtenerCatalogo('001');
+  }
+  cargarCatalogoAreasEmpleados() {
+    return this.obtenerCatalogo('002');
+  }
+  cargarCatalogoZonasEmpleados() {
+    return this.obtenerCatalogo('003');
+  }
+  cargarCatalogoTiposDocumento() {
+    return this.obtenerCatalogo('004');
+  }
+
 }

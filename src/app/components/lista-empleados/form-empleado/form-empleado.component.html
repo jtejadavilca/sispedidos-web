@@ -1,6 +1,6 @@
 <div class="modal" id="modalFrmEmpleado">
-    <div class="modal-dialog">
-      <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" role="document">
   
         <!-- Modal Header -->
         <!-- <div class="modal-header modal-header-success">
@@ -17,25 +17,123 @@
                     <p class="card-category">Ingrese los datos del empleado </p>
                 </div>
                 <div class="card-body">
+
+                  <h3>Datos Personales</h3>
                   <div class="row">
                     <div class="col-12">
                       <mat-form-field class="example-full-width">
-                        <mat-label>Cargo</mat-label>
-                        <!-- <select matNativeControl required>
-                          <option value="01">Vendedor</option>
-                        </select> -->
-                        <mat-select name="cargos" formControlName="cargoEmpleado">
-                          <mat-option *ngFor="let cargo of cargos" [value]="cargo.catalogoEntityPK.paramCatalogo + '' + cargo.catalogoEntityPK.paramCatalogoElemento">
-                            {{cargo.descripcionCorta}}
-                          </mat-option>
-                        </mat-select>
+                        <input matInput placeholder="Nombre completo" formControlName="nombres">
                       </mat-form-field>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12">
                       <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Username">
+                        <input matInput placeholder="Apellido paterno" formControlName="apellidoPaterno">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Apellido materno" formControlName="apellidoMaterno">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <!-- <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Tipo de documento" formControlName="codTipoDocumento">
+                      </mat-form-field> -->
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Tipo de Documento</mat-label>
+                        <mat-select name="tiposDocumento" formControlName="codTipoDocumento">
+                          <mat-option *ngFor="let tipo of tiposDocumento" [value]="tipo.catalogoEntityPK.paramCatalogo + '' + tipo.catalogoEntityPK.paramCatalogoElemento">
+                            {{tipo.descripcionCorta}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="N&uacute;mero de documento" formControlName="numDocumento">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" formControlName="email">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                        <!-- <input matInput placeholder="Fecha Nac." formControlName="fecNacimiento"> -->
+                      <mat-form-field class="example-full-width" color="accent">
+                        <!-- <mat-label>Fec</mat-label> -->
+                        <input matInput [matDatepicker]="picker1" placeholder="Fecha de nacimiento" formControlName="fecNacimiento"> 
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1 color="success"></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="celular" formControlName="celular">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <hr>
+
+                  <h3>Datos de Empleado</h3>
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Cargo</mat-label>
+                        <mat-select name="cargos" formControlName="codCargo">
+                          <mat-option *ngFor="let cargo of cargos" [value]="cargo.catalogoEntityPK.paramCatalogo + '' + cargo.catalogoEntityPK.paramCatalogoElemento">
+                            {{cargo.descripcionCorta}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>&Aacute;rea</mat-label>
+                        <mat-select name="areas" formControlName="codArea">
+                          <mat-option *ngFor="let area of areas" [value]="area.catalogoEntityPK.paramCatalogo + '' + area.catalogoEntityPK.paramCatalogoElemento">
+                            {{area.descripcionCorta}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Zona</mat-label>
+                        <mat-select name="zonas" formControlName="codZona">
+                          <mat-option *ngFor="let zona of zonas" [value]="zona.catalogoEntityPK.paramCatalogo + '' + zona.catalogoEntityPK.paramCatalogoElemento">
+                            {{zona.descripcionCorta}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width" color="accent">
+                        <input matInput [matDatepicker]="fecIni" placeholder="Fecha Ingreso" formControlName="fecIniVigencia"> 
+                        <mat-datepicker-toggle matSuffix [for]="fecIni"></mat-datepicker-toggle>
+                        <mat-datepicker #fecIni color="success"></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                      <mat-form-field class="example-full-width" color="accent">
+                        <input matInput [matDatepicker]="fecFin" placeholder="Fecha Salida" formControlName="fecFinVigencia"> 
+                        <mat-datepicker-toggle matSuffix [for]="fecFin"></mat-datepicker-toggle>
+                        <mat-datepicker #fecFin color="success"></mat-datepicker>
                       </mat-form-field>
                     </div>
                   </div>
@@ -46,7 +144,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="submit" [disabled]="forma.invalid" class="btn btn-primary">Grabar</button>
+              <button type="submit" class="btn btn-primary">Grabar</button>
             </div>
                   
           </form>

@@ -15,8 +15,11 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
     declarations: [
@@ -38,6 +41,9 @@ import {
         MatInputModule,
         MatSelectModule,
         MatTooltipModule,
+        MatMomentDateModule,
+        // MatNativeDateModule,
+        MatDatepickerModule
     ],
     exports: [
       CardStatsComponent,
