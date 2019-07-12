@@ -8,11 +8,18 @@ import { IDatosPersonales } from './datosPersonales.interface';
 // datosPersonales	->
 
 export interface IEmpleado {
+    id?: number;
+    activo?: number;
     usuReg: string;
+    fecReg: string;
+    usuModif?: any;
+    fecModif?: any;
     codCargo: string;
     codArea: string;
     codZona: string;
-    fecIniVigencia: Date;
-    fecFinVigencia: Date;
+    fecIniVigencia: string;
+    fecFinVigencia: string;
+    usuarioEntityList?: any;
+    tbEmpleadoId: number;
     datosPersonales: IDatosPersonales;
 }

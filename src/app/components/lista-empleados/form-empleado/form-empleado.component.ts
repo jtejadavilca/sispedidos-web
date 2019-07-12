@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogoService } from '../../../sispedidos-web/services/catalogo.service';
-import { CatalogoEntity } from '../../../interfaces/response.interface';
+import { IResponseBean } from '../../../interfaces/response.interface';
+
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -16,6 +17,8 @@ import {default as _rollupMoment} from 'moment';
 import { AlertService } from '../../../shared/services/alert.service';
 import { Empleado } from '../../../shared/models/empleado.model';
 import { DatosPersonales } from 'src/app/shared/models/datosPersonales.model';
+import { EmpleadoService } from '../../../sispedidos-web/services/empleado.service';
+import { ICatalogo } from '../../../interfaces/catalogo.interface';
 
 const moment = _rollupMoment || _moment;
 
@@ -32,42 +35,33 @@ const moment = _rollupMoment || _moment;
 export class FormEmpleadoComponent implements OnInit {
 
   cargoDefaultSelected = '001003';
-  cargos: CatalogoEntity[] = [];
+  cargos: Observable<ICatalogo[]>;
   areaDefaultSelected = '002003';
-  areas: CatalogoEntity[] = [];
+  areas: Observable<ICatalogo[]>;
   zonaDefaultSelected = '003002';
-  zonas: CatalogoEntity[] = [];
+  zonas: Observable<ICatalogo[]>;
   tipoDocumentoDefaultSelected = '004002';
-  tiposDocumento: CatalogoEntity[] = [];
+  tiposDocumento: Observable<ICatalogo[]>;
 
   forma: FormGroup;
 
   constructor( private catalogoService: CatalogoService,
-               private alertService: AlertService) {
+               private alertService: AlertService,
+               private empleadoService: EmpleadoService) {
   }
 
   ngOnInit() {
     // Carga de Catalogo  de Cargos
-    this.catalogoService.cargarCatalogoCargosEmpleados()
-    .subscribe( (response: CatalogoEntity[]) => {
-      this.cargos = response;
-    });
+    this.cargos = this.catalogoService.cargarCatalogoCargosEmpleados();
+
     // Carga de Catalogo  de Áreas
-    this.catalogoService.cargarCatalogoAreasEmpleados()
-    .subscribe( (response: CatalogoEntity[]) => {
-      this.areas = response;
-    });
+    this.areas = this.catalogoService.cargarCatalogoAreasEmpleados();
+
     // Carga de Catalogo  de Zonas
-    this.catalogoService.cargarCatalogoZonasEmpleados()
-    .subscribe( (response: CatalogoEntity[]) => {
-      this.zonas = response;
-    });
+    this.zonas = this.catalogoService.cargarCatalogoZonasEmpleados();
+
     // Carga de Catalogo  de Tipos de Documentos
-    this.catalogoService.cargarCatalogoTiposDocumento()
-    .subscribe( (response: CatalogoEntity[]) => {
-      this.tiposDocumento = response;
-    });
-    // this.cargos = this.catalogoService.cargarCatalogoCargosEmpleados();
+    this.tiposDocumento = this.catalogoService.cargarCatalogoTiposDocumento();
 
     this.initForm();
 
@@ -104,8 +98,20 @@ export class FormEmpleadoComponent implements OnInit {
       datosPersonales
     });
 
-    console.log('empleado', empleado);
+    this.empleadoService.registrarEmpleado( empleado ).subscribe( (response: IResponseBean) => {
+      console.log('response', response);
+      if (response.estado) {
+        this.alertService.successMsj('Se registró el empleado con éxito', 'Registro correcto', () => {
+          this.cargarNuevoEmpleado(response.dataObj);
+        });
+      } else {
+        console.log(response.mensajesErrores);
+      }
+    });
 
   }
 
+  cargarNuevoEmpleado(nuevoEmpleado) {
+    console.log('nuevoEmpleado', nuevoEmpleado);
+  }
 }

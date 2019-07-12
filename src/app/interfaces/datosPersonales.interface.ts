@@ -9,7 +9,12 @@
 // celular				-> Numero de celular del empleado
 
 export interface IDatosPersonales {
+    id?: number;
+    activo?: number;
     usuReg: string;
+    fecReg: string;
+    usuModif?: any;
+    fecModif?: any;
     codTipoDocumento: string;
     numDocumento: string;
     nombres: string;
@@ -18,4 +23,8 @@ export interface IDatosPersonales {
     email?: string;
     fecNacimiento?: string;
     celular?: string;
+    telefono1?: any;
+    telefono2?: any;
+    direccionEntityList?: any;
+    tbDatosPersonalesId: number;
 }

@@ -20,6 +20,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
         MatTooltipModule,
         MatMomentDateModule,
         // MatNativeDateModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        SharedModule
     ],
     exports: [
       CardStatsComponent,

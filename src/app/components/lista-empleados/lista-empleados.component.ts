@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IEmpleado } from 'src/app/interfaces/empleado.interface';
+import { EmpleadoService } from 'src/app/sispedidos-web/services/empleado.service';
+import { IResponseBean } from '../../interfaces/response.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-empleados',
@@ -9,9 +13,17 @@ export class ListaEmpleadosComponent implements OnInit {
 
   @Input() onlyShow = true;
 
-  constructor() { }
+  empleados: Observable<IEmpleado[]>;
+
+  constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit() {
+    // this.empleadoService.listarEmpleados()
+    //     .subscribe( (respEmpleado: IEmpleado[]) => {
+    //       this.empleados = respEmpleado ? respEmpleado : [];
+    //       console.log('this.empleados', this.empleados);
+    //     });
+    this.empleados = this.empleadoService.listarEmpleados();
   }
 
 }

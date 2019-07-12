@@ -48,7 +48,7 @@
                       <mat-form-field class="example-full-width">
                         <mat-label>Tipo de Documento</mat-label>
                         <mat-select name="tiposDocumento" formControlName="codTipoDocumento">
-                          <mat-option *ngFor="let tipo of tiposDocumento" [value]="tipo.catalogoEntityPK.paramCatalogo + '' + tipo.catalogoEntityPK.paramCatalogoElemento">
+                          <mat-option *ngFor="let tipo of tiposDocumento | async" [value]="tipo.catalogoEntityPK.paramCatalogo + '' + tipo.catalogoEntityPK.paramCatalogoElemento">
                             {{tipo.descripcionCorta}}
                           </mat-option>
                         </mat-select>
@@ -92,7 +92,7 @@
                       <mat-form-field class="example-full-width">
                         <mat-label>Cargo</mat-label>
                         <mat-select name="cargos" formControlName="codCargo">
-                          <mat-option *ngFor="let cargo of cargos" [value]="cargo.catalogoEntityPK.paramCatalogo + '' + cargo.catalogoEntityPK.paramCatalogoElemento">
+                          <mat-option *ngFor="let cargo of cargos | async" [value]="cargo.catalogoEntityPK.paramCatalogo + '' + cargo.catalogoEntityPK.paramCatalogoElemento">
                             {{cargo.descripcionCorta}}
                           </mat-option>
                         </mat-select>
@@ -102,7 +102,7 @@
                       <mat-form-field class="example-full-width">
                         <mat-label>&Aacute;rea</mat-label>
                         <mat-select name="areas" formControlName="codArea">
-                          <mat-option *ngFor="let area of areas" [value]="area.catalogoEntityPK.paramCatalogo + '' + area.catalogoEntityPK.paramCatalogoElemento">
+                          <mat-option *ngFor="let area of areas | async" [value]="area.catalogoEntityPK.paramCatalogo + '' + area.catalogoEntityPK.paramCatalogoElemento">
                             {{area.descripcionCorta}}
                           </mat-option>
                         </mat-select>
@@ -114,7 +114,7 @@
                       <mat-form-field class="example-full-width">
                         <mat-label>Zona</mat-label>
                         <mat-select name="zonas" formControlName="codZona">
-                          <mat-option *ngFor="let zona of zonas" [value]="zona.catalogoEntityPK.paramCatalogo + '' + zona.catalogoEntityPK.paramCatalogoElemento">
+                          <mat-option *ngFor="let zona of zonas | async" [value]="zona.catalogoEntityPK.paramCatalogo + '' + zona.catalogoEntityPK.paramCatalogoElemento">
                             {{zona.descripcionCorta}}
                           </mat-option>
                         </mat-select>

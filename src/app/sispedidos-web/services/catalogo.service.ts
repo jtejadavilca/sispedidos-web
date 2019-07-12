@@ -1,41 +1,62 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
-import { ResponseBeanCatalogo, CatalogoEntity } from '../../interfaces/response.interface';
+import { map, filter } from 'rxjs/operators';
+import { IResponseBean } from '../../interfaces/response.interface';
 import { Observable } from 'rxjs';
+import { ICatalogo } from '../../interfaces/catalogo.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogoService {
 
+  private mapCatalogo: any[] = [];
+
   constructor(private http: HttpClient) { }
 
-  obtenerCatalogo(codCatalogo: string) {
+  obtenerListaCatalogos(codCatalogo: string) {
     return this.http.get(`${environment.url_base}/catalogos/obtenercatalogo/${codCatalogo}`)
                     .pipe(
-                      map( (respCat: ResponseBeanCatalogo) => {
+                      map( (respCat: IResponseBean) => {
                         if ( respCat.estado && respCat.dataLst) {
-                          return respCat.dataLst.filter(  (catalogo: CatalogoEntity) => {
-                            return catalogo.tipo === 'D';
-                          });
+                          return respCat.dataLst.filter(  (catalogo: ICatalogo) => catalogo.tipo === 'D');
                         }
                       })
                     );
   }
 
   cargarCatalogoCargosEmpleados() {
-    return this.obtenerCatalogo('001');
+    return this.obtenerListaCatalogos('001');
   }
   cargarCatalogoAreasEmpleados() {
-    return this.obtenerCatalogo('002');
+    return this.obtenerListaCatalogos('002');
   }
   cargarCatalogoZonasEmpleados() {
-    return this.obtenerCatalogo('003');
+    return this.obtenerListaCatalogos('003');
   }
   cargarCatalogoTiposDocumento() {
-    return this.obtenerCatalogo('004');
+    return this.obtenerListaCatalogos('004');
+  }
+
+  obtenerCatalogoEspecifico(codCatalogo: string) {
+    if ( !codCatalogo || codCatalogo.length < 6 ) {
+      return null;
+    }
+    // console.log('codCatalogo', codCatalogo);
+    // console.log('codCatalogo.substr(0, 3)', codCatalogo.substr(0, 3));
+    // console.log('codCatalogo.substr(3, 3)', codCatalogo.substr(3, 3));
+    const catalogo = this.obtenerListaCatalogos(codCatalogo.substr(0, 3)).pipe(
+    // filter( cat => cat.catalogoEntityPK.paramCatalogoElemento === codCatalogo.substr(3, 3) )
+      map( (lstCat: ICatalogo[]) => {
+        return lstCat.filter( (cat: ICatalogo) => cat.catalogoEntityPK.paramCatalogoElemento === codCatalogo.substr(3, 3));
+      })
+    ).subscribe( c => {
+      console.log('c', c);
+      return c;
+    });
+
+    console.log('catalogo', catalogo);
   }
 
 }

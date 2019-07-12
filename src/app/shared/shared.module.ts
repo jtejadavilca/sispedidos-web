@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CatalogoPipe } from './pipes/catalogo.pipe';
 
 @NgModule({
   imports: [
@@ -15,12 +16,14 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    CatalogoPipe
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    CatalogoPipe
   ],
 })
 export class SharedModule { }

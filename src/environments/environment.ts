@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  url_base : 'http://localhost:8081/syspedidos'
+  url_base : 'http://localhost:8081/syspedidos',
+  cod_catalogos: [
+    {cod_catalogo: '001', desc: 'cargos'},
+    {cod_catalogo: '002', desc: 'areas'},
+    {cod_catalogo: '003', desc: 'zonas'},
+    {cod_catalogo: '004', desc: 'tipos_doc'},
+    {cod_catalogo: '005', desc: 'marcas_productos'},
+    {cod_catalogo: '006', desc: 'modelos_productos'},
+    {cod_catalogo: '007', desc: 'cod_estados_pedido'},
+  ]
 };
 
 /*

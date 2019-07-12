@@ -5,8 +5,8 @@ export class Empleado {
     public codCargo: string;
     public codArea: string;
     public codZona: string;
-    public fecIniVigencia: Date;
-    public fecFinVigencia: Date;
+    public fecIniVigencia: string;
+    public fecFinVigencia: string;
     public datosPersonales: IDatosPersonales;
 
 
