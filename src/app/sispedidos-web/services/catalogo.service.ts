@@ -1,21 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { map, filter } from 'rxjs/operators';
+import { map, filter, take } from 'rxjs/operators';
 import { IResponseBean } from '../../interfaces/response.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { ICatalogo } from '../../interfaces/catalogo.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogoService {
 
-  private mapCatalogo: any[] = [];
+  private mapCatalogo: Observable<any>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.cargarCatalogos();
+  }
 
-  obtenerListaCatalogos(codCatalogo: string) {
+  cargarCatalogos() {
+    if ( !this.mapCatalogo ) {
+
+      this.http.get(`${environment.url_base}/catalogos/cargar-catalogos`)
+        .pipe(
+          take(1)
+        )
+        .subscribe((resp: IResponseBean) => {
+          this.mapCatalogo = resp.dataObj;
+        });
+    }
+
+  }
+
+  obtenerListaCatalogos(codCatalogo: string): Observable<ICatalogo[]> {
+    if ( this.mapCatalogo &&  this.mapCatalogo[codCatalogo]) {
+      return of( this.mapCatalogo[codCatalogo] );
+    }
     return this.http.get(`${environment.url_base}/catalogos/obtenercatalogo/${codCatalogo}`)
                     .pipe(
                       map( (respCat: IResponseBean) => {
@@ -39,24 +59,23 @@ export class CatalogoService {
     return this.obtenerListaCatalogos('004');
   }
 
-  obtenerCatalogoEspecifico(codCatalogo: string) {
+  obtenerCatalogoEspecifico(codCatalogo: string): Promise<ICatalogo> {
     if ( !codCatalogo || codCatalogo.length < 6 ) {
       return null;
     }
-    // console.log('codCatalogo', codCatalogo);
-    // console.log('codCatalogo.substr(0, 3)', codCatalogo.substr(0, 3));
-    // console.log('codCatalogo.substr(3, 3)', codCatalogo.substr(3, 3));
-    const catalogo = this.obtenerListaCatalogos(codCatalogo.substr(0, 3)).pipe(
-    // filter( cat => cat.catalogoEntityPK.paramCatalogoElemento === codCatalogo.substr(3, 3) )
-      map( (lstCat: ICatalogo[]) => {
-        return lstCat.filter( (cat: ICatalogo) => cat.catalogoEntityPK.paramCatalogoElemento === codCatalogo.substr(3, 3));
-      })
-    ).subscribe( c => {
-      console.log('c', c);
-      return c;
-    });
+    const catalogo: Observable<ICatalogo> = this.obtenerListaCatalogos(codCatalogo.substr(0, 3)).pipe(
 
-    console.log('catalogo', catalogo);
+          map( (lstCat: ICatalogo[]) => {
+            const newCat = lstCat.filter(
+               (cat: ICatalogo) => {
+                 return cat.catalogoEntityPK.paramCatalogoElemento === codCatalogo.substr(3, 3) && cat.tipo === 'D';
+               }
+            );
+            return newCat[0] as ICatalogo;
+          })
+    );
+
+    return catalogo.toPromise();
   }
 
 }

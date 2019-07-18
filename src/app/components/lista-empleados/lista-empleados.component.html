@@ -31,10 +31,10 @@
                                 {{empleado.datosPersonales.nombres | uppercase}}
 
                             </td>
-                            <td> {{empleado.datosPersonales.codTipoDocumento | catalogo}} </td>
+                            <td> {{empleado.datosPersonales.codTipoDocumento | catalogo | async}} </td>
                             <td> {{empleado.datosPersonales.numDocumento}} </td>
-                            <td> {{empleado.codArea}} </td>
-                            <td> {{empleado.codCargo}} </td>
+                            <td> {{empleado.codArea | catalogo | async}} </td>
+                            <td> {{empleado.codCargo | catalogo | async}} </td>
                         </tr>
                     </tbody>
                 </table>
