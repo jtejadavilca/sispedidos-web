@@ -11,7 +11,7 @@ export class CatalogoPipe implements PipeTransform {
   async transform(codCatalogo: string): Promise<string> {
     let desc;
     await this.catalogoService.obtenerCatalogoEspecifico(codCatalogo)
-    .then( catalogo => desc = catalogo.descripcionCorta );
+    .then( catalogo => desc = catalogo ? catalogo.descripcionCorta : '-');
     return desc;
   }
 
