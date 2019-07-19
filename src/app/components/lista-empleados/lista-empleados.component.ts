@@ -15,6 +15,8 @@ export class ListaEmpleadosComponent implements OnInit {
 
   empleados: Observable<IEmpleado[]>;
 
+  empleadoSeleccionado: IEmpleado = null;
+
   constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit() {
@@ -26,4 +28,8 @@ export class ListaEmpleadosComponent implements OnInit {
     this.empleados = this.empleadoService.listarEmpleados();
   }
 
+  verDetalleEmpleado(empleado: IEmpleado) {
+    console.log('empleado', empleado);
+    this.empleadoSeleccionado = empleado;
+  }
 }

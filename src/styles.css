@@ -3,3 +3,7 @@
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
     z-index: 99999 !important;
 }
+
+.span-view-detail {
+    color: #9C27B0;
+}

@@ -21,6 +21,7 @@ import {
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { SharedModule } from '../shared/shared.module';
+import { DetalleEmpleadoComponent } from './lista-empleados/detalle-empleado/detalle-empleado.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { SharedModule } from '../shared/shared.module';
       ListaEmpleadosComponent,
       FormEmpleadoComponent,
       ListaClientesComponent,
-      FormClientesComponent
+      FormClientesComponent,
+      DetalleEmpleadoComponent
     ],
     imports: [
         CommonModule,
