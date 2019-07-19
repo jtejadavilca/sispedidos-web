@@ -15,10 +15,10 @@ import {default as _rollupMoment} from 'moment';
 // SweetAlert2
 // import Swal from 'sweetalert2';
 import { AlertService } from '../../../shared/services/alert.service';
-import { Empleado } from '../../../shared/models/empleado.model';
 import { DatosPersonales } from 'src/app/shared/models/datosPersonales.model';
 import { EmpleadoService } from '../../../sispedidos-web/services/empleado.service';
 import { ICatalogo } from '../../../interfaces/catalogo.interface';
+import { IEmpleado } from '../../../interfaces/empleado.interface';
 
 const moment = _rollupMoment || _moment;
 
@@ -87,16 +87,16 @@ export class FormEmpleadoComponent implements OnInit {
 
   registrarEmpleado() {
     if ( this.forma.invalid ) {
-      this.alertService.dangerMsj('Falta completar datos');
+      this.alertService.dangerMsj('Faltan completar datos');
       return;
     }
 
     const datosPersonales = new DatosPersonales({...this.forma.value, usuReg: 'JTV_ADMIN'});
-    const empleado = new Empleado({
+    const empleado: IEmpleado = {
       ...this.forma.value,
       usuReg: 'JTV_ADMIN',
       datosPersonales
-    });
+    };
 
     this.empleadoService.registrarEmpleado( empleado ).subscribe( (response: IResponseBean) => {
       console.log('response', response);

@@ -59,6 +59,10 @@ export class CatalogoService {
     return this.obtenerListaCatalogos('004');
   }
 
+  cargarCatalogoTiposCliente() {
+    return this.obtenerListaCatalogos('008');
+  }
+
   obtenerCatalogoEspecifico(codCatalogo: string): Promise<ICatalogo> {
     if ( !codCatalogo || codCatalogo.length < 6 ) {
       return null;

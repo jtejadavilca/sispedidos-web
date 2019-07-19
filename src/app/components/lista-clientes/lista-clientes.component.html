@@ -16,35 +16,17 @@
           <div class="card-body table-responsive">
               <table class="table table-hover">
                   <thead class="text-success">
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Salary</th>
-                      <th>Country</th>
+                      <th>RUC</th>
+                      <th>RAZ&Oacute;N SOCIAL</th>
+                      <th>TELEFONOS</th>
+                      <th>TIPO</th>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>Dakota Rice</td>
-                          <td>$36,738</td>
-                          <td>Niger</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>Minerva Hooper</td>
-                          <td>$23,789</td>
-                          <td>Curaçao</td>
-                      </tr>
-                      <tr>
-                          <td>3</td>
-                          <td>Sage Rodriguez</td>
-                          <td>$56,142</td>
-                          <td>Netherlands</td>
-                      </tr>
-                      <tr>
-                          <td>4</td>
-                          <td>Philip Chaney</td>
-                          <td>$38,735</td>
-                          <td>Korea, South</td>
+                      <tr *ngFor="let cliente of clientes | async">
+                          <td>{{cliente.numRuc}}</td>
+                          <td>{{cliente.razonSocial}}</td>
+                          <td> {{cliente.telefono1}} / {{cliente.telefono2}} </td>
+                          <td>{{cliente.tipoCliente}}</td>
                       </tr>
                   </tbody>
               </table>

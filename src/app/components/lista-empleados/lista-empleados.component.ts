@@ -20,11 +20,6 @@ export class ListaEmpleadosComponent implements OnInit {
   constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit() {
-    // this.empleadoService.listarEmpleados()
-    //     .subscribe( (respEmpleado: IEmpleado[]) => {
-    //       this.empleados = respEmpleado ? respEmpleado : [];
-    //       console.log('this.empleados', this.empleados);
-    //     });
     this.empleados = this.empleadoService.listarEmpleados();
   }
 

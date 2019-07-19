@@ -1,4 +1,5 @@
 import { IDatosPersonales } from './datosPersonales.interface';
+import { IGeneric } from './generic.interface';
 // usuReg			-> Usuario logeado quien realiza el registro
 // codCargo		-> Codigo del cargo (Por ahora 001003: Vendedor)
 // codArea			-> Código del área del empleado (Por ahora 002003: Comercial)
@@ -7,13 +8,8 @@ import { IDatosPersonales } from './datosPersonales.interface';
 // fecFinVigencia	-> 2599-12-31 (Debería actualizarce cuando el trabajar deja de trabajar en la empresa)
 // datosPersonales	->
 
-export interface IEmpleado {
+export interface IEmpleado extends IGeneric {
     id?: number;
-    activo?: number;
-    usuReg: string;
-    fecReg: string;
-    usuModif?: any;
-    fecModif?: any;
     codCargo: string;
     codArea: string;
     codZona: string;

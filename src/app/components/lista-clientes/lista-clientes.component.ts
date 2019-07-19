@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICliente } from '../../interfaces/cliente.interface';
+import { ClienteService } from '../../sispedidos-web/services/cliente.service';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -9,9 +12,12 @@ export class ListaClientesComponent implements OnInit {
 
   @Input() onlyShow = true;
 
-  constructor() { }
+  clientes: Observable<ICliente[]>;
+
+  constructor(private clienteService: ClienteService) { }
 
   ngOnInit() {
+    this.clientes = this.clienteService.listarClientes();
   }
 
 }
